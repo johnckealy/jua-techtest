@@ -8,8 +8,19 @@
 }
 
 
+body{
+  background-color: #fffaf3;
+}
+
+
 @layer base {
   h1 {
-    @apply text-4xl md:text-6xl text-default my-3 ;
+    @apply text-4xl md:text-6xl my-3 ;
+  }
+  h3 {
+    @apply text-xl md:text-2xl my-3 ;
+  }
+  p {
+    @apply my-5 ;
   }
 }

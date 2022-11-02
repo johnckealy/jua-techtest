@@ -19,17 +19,8 @@ module.exports = {
         'default-light': '#f8f8ff',
         'default-light-hover': '#f8f8ff',
       },
-      // transitionProperty: {
-      //   'width': 'width',
-      //   'height': 'height',
-      // }
     },
-    backgroundImage: {
-      'hero-pattern': "url('/images/qambio-background.jpg')",
-    }
-    // fontFamily: {
-    //   arima: ['Arima', ...defaultTheme.fontFamily.sans],
-    // },
+
   },
   plugins: [],
 }
