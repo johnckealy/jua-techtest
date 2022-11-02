@@ -70,12 +70,7 @@ function HomePage({ }) {
         <div className='flex flex-col gap-4'>
           <h3>Please upload a GeoJSON file</h3>
           <span className='text-red-600'>{uploadError}</span>
-          <input type="file" onChange={showFile} className=' file:mr-5 file:py-2 file:px-6
-            file:rounded-full file:border-0
-            file:text-sm file:font-medium
-            file:bg-blue-50 file:text-blue-700
-            hover:file:cursor-pointer hover:file:bg-blue-100
-            hover:file:text-amber-700'/>
+          <input type="file" onChange={showFile} className=' file:mr-5 file:py-2 file:px-6 file:rounded-full file:border-0 file:text-sm file:font-medium file:bg-blue-50 file:text-blue-700 hover:file:cursor-pointer hover:file:bg-blue-100 hover:file:text-amber-700'/>
         </div>
       </div>}
 

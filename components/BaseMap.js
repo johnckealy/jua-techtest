@@ -106,11 +106,11 @@ const BaseMap = ({ fileData }) => {
 
   return (
     <div>
-      <button className='ml-auto py-2 px-6 ring-1 ring-gray-400 shadow-lg hover:bg-gray-100  gap-2 rounded-full  m-3 flex items-center' onClick={DownloadTxtFile}>
+      <button className='ml-auto py-2 px-6 ring-1 ring-gray-400 shadow-lg hover:bg-gray-100  gap-2 rounded-full m-3 flex items-center' onClick={DownloadTxtFile}>
         <FaDownload /><span>Get GeoJSON</span>
       </button>
       <div className='border-2 border-black rounded '>
-        <MapContainer center={[-28.89, 30.4]} zoom={12} style={{ height: "700px", width: "100%" }}>
+        <MapContainer center={mapCenter} zoom={12} style={{ height: "700px", width: "100%" }}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <DrawTool selectedFeature={selectedFeature} updateGeoJSON={UpdateGeoJSON} />
           <AllFeatures geojson={geojson} setSelectedFeature={setSelectedFeature} />
