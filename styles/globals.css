@@ -3,7 +3,9 @@
 @tailwind utilities;
 
 
-
+.sr-only {
+  display: none;
+}
 
 
 @layer base {
