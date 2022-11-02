@@ -1,14 +1,17 @@
-import { MapContainer, TileLayer, useMapEvents, useMap } from 'react-leaflet'
-import L from "leaflet";
 import 'leaflet/dist/leaflet.css'
 import 'node_modules/leaflet/dist/leaflet.css'
 import 'node_modules/leaflet-draw/dist/leaflet.draw.css'
-import { useEffect } from 'react';
-import DrawTool from './DrawTool'
-import { useState } from 'react';
+
+import L from "leaflet";
+import { useState, useEffect } from 'react';
+import { MapContainer, TileLayer, useMap } from 'react-leaflet'
 import { FaDownload } from 'react-icons/fa'
+import DrawTool from '@/components/DrawTool'
 
 
+/*
+Draws the full set of geojson polygons onto the map
+*/
 function AllFeatures({ geojson, setSelectedFeature }) {
   const map = useMap()
 
@@ -33,7 +36,9 @@ function AllFeatures({ geojson, setSelectedFeature }) {
   ReRenderFeatures();
 }
 
-
+/*
+Generate metadata for features drawn onto the map
+*/
 const generateNewFeatureMetadata = (feature) => {
   // This function allow us to calcualate the bbox values from the coordinates
   function flipArray(arr) {
@@ -59,23 +64,30 @@ const generateNewFeatureMetadata = (feature) => {
 }
 
 
-
+/*
+Draws the map
+*/
 const BaseMap = ({ fileData }) => {
   const [selectedFeature, setSelectedFeature] = useState(null)
   const [geojson, setGeojson] = useState(fileData)
 
+  /*
+  Invokes the download of the edited geojson file
+  */
   const DownloadTxtFile = () => {
     const downloadObject = JSON.stringify(geojson)
     const element = document.createElement("a");
-    const file = new Blob([downloadObject], { type: 'text/json' });
+    const file = new Blob([downloadObject], { type: 'application/json' });
     element.href = URL.createObjectURL(file);
-    element.download = "myFile.json";
+    element.download = "output.geojson";
     document.body.appendChild(element); // Required for this to work in FireFox
     element.click();
   }
   let modifedGeojson = JSON.parse(JSON.stringify(geojson));
 
-
+  /*
+  Updates the geojson file with the new feature
+  */
   const UpdateGeoJSON = (newFeatureGeo) => {
     const newFeature = newFeatureGeo.features[newFeatureGeo.features.length - 1]
     if (!newFeature.id) {
@@ -98,7 +110,6 @@ const BaseMap = ({ fileData }) => {
         <FaDownload /><span>Get GeoJSON</span>
       </button>
       <div className='border-2 border-black rounded '>
-
         <MapContainer center={[-28.89, 30.4]} zoom={12} style={{ height: "700px", width: "100%" }}>
           <TileLayer url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png" />
           <DrawTool selectedFeature={selectedFeature} updateGeoJSON={UpdateGeoJSON} />

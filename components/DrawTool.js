@@ -1,9 +1,9 @@
-import { Map, TileLayer, FeatureGroup, Circle, useMap } from 'react-leaflet';
+import { FeatureGroup, useMap } from 'react-leaflet';
 import { EditControl } from "react-leaflet-draw"
 import { useEffect, useRef, useState } from 'react';
 
 
-const DrawTool = ({ selectedFeature, updateGeoJSON, ForceReRender }) => {
+const DrawTool = ({ selectedFeature, updateGeoJSON }) => {
   const map = useMap()
   const ref = useRef(null);
   const [selectedLayerID , setSelectedLayerID] = useState(null)

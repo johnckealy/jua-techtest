@@ -1,3 +1,4 @@
+import next from 'next'
 import dynamic from 'next/dynamic'
 import { useState } from 'react'
 import { FiRefreshCw } from 'react-icons/fi'
@@ -5,6 +6,8 @@ import { FiRefreshCw } from 'react-icons/fi'
 function HomePage({ }) {
   const [fileData, setFileData] = useState(null)
   const [uploadError, setUploadError] = useState('')
+
+  // next.js utility that allows us to render this component only in the browser
   const BaseMap = dynamic(() => import('@/components/BaseMap'), {
     ssr: false,
   })
@@ -20,7 +23,8 @@ function HomePage({ }) {
       }
       catch (e) {
         console.log(e)
-        setUploadError('There was a problem uploading your file. Please check that the file of type .geojson')
+        setUploadError('There was a problem uploading your file. \
+        Please check that the file of type .geojson')
       }
     };
     reader.readAsText(e.target.files[0])
@@ -74,7 +78,6 @@ function HomePage({ }) {
             hover:file:text-amber-700'/>
         </div>
       </div>}
-
 
       {fileData && <BaseMap fileData={fileData} />}
 
