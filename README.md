@@ -94,4 +94,6 @@ time to generalize it, so although it will work with other datasets, the map wil
 Africa, and so you will need to zoom out and pan to see other datasets. Also, the metadata for new
 features will be added according to that geojson file's properties.
 
-And that's it! I hope you enjoyed checking out this mini-application and I look forward to hearing your thoughts!
+
+And that's it! I completed this project in just one day, so there will be bugs and edge cases that I won't have
+tested – there are also no unit tests. With more time, I would of course create a more robust and properly tested app, but this is as far I can go for free 😊. I hope you enjoyed checking out this mini-application and I look forward to hearing your thoughts!
