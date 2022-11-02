@@ -8,26 +8,20 @@ const DrawTool = ({ selectedFeature, updateGeoJSON, ForceReRender }) => {
   const ref = useRef(null);
   const [selectedLayerID , setSelectedLayerID] = useState(null)
 
-
   useEffect(() => {
-
     const myStyle = {
       "color": "#ff7800",
-      "weight": 5,
     };
-
     map.eachLayer(layer => {
       if (layer == selectedLayerID) {
         map.removeLayer(layer)
       }
     })
-
     L.geoJSON(selectedFeature, { style: myStyle }).eachLayer((layer) => {
       ref.current?.addLayer(layer);
       setSelectedLayerID(layer)
     });
   }, [selectedFeature]);
-
 
 
   const handleChange = (e) => {
@@ -45,8 +39,8 @@ const DrawTool = ({ selectedFeature, updateGeoJSON, ForceReRender }) => {
         onDeleted={handleChange}
         draw={{
           rectangle: false,
-          circle: true,
-          polyline: true,
+          circle: false,
+          polyline: false,
           polygon: true,
           marker: false,
           circlemarker: false,
