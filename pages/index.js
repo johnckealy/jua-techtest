@@ -44,15 +44,15 @@ function HomePage({ }) {
         </p>}
         {fileData && <p>
           You may edit any polygon on the map. To do so, simply click the desired
-          feature; it should display in a different colour. Then, click the "Edit Layers"
+          feature; it should display in a different colour. Then, click the &quot;Edit Layers&quot;
           button on the top right hand side of the map. You may now drag any of the
-          geopoints to a new location and reshape the feature. Click "Save" when you're done.
+          geopoints to a new location and reshape the feature. Click &quot;Save&quot; when you&apos;re done.
         </p>}
-        {fileData && <p> You may also add new polygons anywhere on the map by clicking the "Draw a polygon"
-          Button. This will save automatically, but you can always remove it using the "Delete Layers"
+        {fileData && <p> You may also add new polygons anywhere on the map by clicking the &quot;Draw a polygon&quot;
+          Button. This will save automatically, but you can always remove it using the &quot;Delete Layers&quot;
           button.
         </p>}
-        {fileData && <p> When you're done, hit the "Get GeoJSON" button to download the new feature set.
+        {fileData && <p> When you&apos;re done, hit the &quot;Get GeoJSON&quot; button to download the new feature set.
         </p>}
       </section>
 
