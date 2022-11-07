@@ -70,6 +70,7 @@ Draws the map
 const BaseMap = ({ fileData }) => {
   const [selectedFeature, setSelectedFeature] = useState(null)
   const [geojson, setGeojson] = useState(fileData)
+  const [mapCenter, setMapCenter] = useState([-28.89, 30.4])
 
   /*
   Invokes the download of the edited geojson file
